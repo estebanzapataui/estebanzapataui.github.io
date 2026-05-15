@@ -22,7 +22,6 @@
             scroll-behavior: smooth;
         }
 
-        /* Custom scrollbar */
         ::-webkit-scrollbar {
             width: 8px;
         }
@@ -34,14 +33,12 @@
             border-radius: 10px;
         }
 
-        /* Container */
         .container {
             max-width: 1200px;
             margin: 0 auto;
             padding: 0 24px;
         }
 
-        /* Header / Nav */
         header {
             background: rgba(10, 10, 10, 0.98);
             backdrop-filter: blur(10px);
@@ -87,7 +84,6 @@
             color: #8b5cf6;
         }
 
-        /* Buttons */
         .btn {
             display: inline-flex;
             align-items: center;
@@ -117,7 +113,6 @@
             box-shadow: 0 8px 20px rgba(139, 92, 246, 0.3);
         }
 
-        /* Hero Section */
         .hero {
             padding: 4rem 0 3rem 0;
             display: flex;
@@ -186,7 +181,6 @@
             filter: drop-shadow(0 0 15px rgba(139, 92, 246, 0.5));
         }
 
-        /* Section general */
         section {
             padding: 5rem 0;
         }
@@ -207,7 +201,6 @@
             border-radius: 4px;
         }
 
-        /* Skills grid */
         .skills-grid {
             display: flex;
             flex-wrap: wrap;
@@ -220,7 +213,6 @@
             padding: 1rem 2rem;
             border-radius: 60px;
             font-weight: 600;
-            box-shadow: 0 2px 10px rgba(0,0,0,0.2);
             display: flex;
             align-items: center;
             gap: 10px;
@@ -235,41 +227,30 @@
         .skill-card:hover {
             transform: translateY(-5px);
             border-color: #8b5cf6;
-            box-shadow: 0 10px 25px rgba(139, 92, 246, 0.2);
             background: rgba(139, 92, 246, 0.1);
         }
 
-        /* Projects Section - Mensaje personalizado */
         .empty-projects {
             text-align: center;
             padding: 3rem;
             background: rgba(30, 30, 40, 0.5);
             border-radius: 2rem;
             border: 1px dashed rgba(139, 92, 246, 0.4);
-            backdrop-filter: blur(4px);
         }
         .empty-projects i {
             font-size: 3rem;
             color: #8b5cf6;
             margin-bottom: 1rem;
-            opacity: 0.7;
-        }
-        .empty-projects p {
-            color: #9ca3af;
-            font-size: 1.1rem;
         }
 
-        /* Contacto & Form */
         .contact-wrapper {
             display: flex;
             flex-wrap: wrap;
             gap: 3rem;
             background: rgba(20, 20, 28, 0.8);
-            backdrop-filter: blur(10px);
             border-radius: 2rem;
             padding: 2rem;
             border: 1px solid rgba(139, 92, 246, 0.3);
-            transition: all 0.3s;
         }
         .contact-info {
             flex: 1;
@@ -312,7 +293,6 @@
             border: 1px solid rgba(139, 92, 246, 0.3);
             border-radius: 1rem;
             font-family: inherit;
-            transition: 0.2s;
             background: rgba(10, 10, 10, 0.8);
             color: white;
         }
@@ -321,8 +301,23 @@
             border-color: #8b5cf6;
             box-shadow: 0 0 0 3px rgba(139, 92, 246, 0.2);
         }
-        .contact-form button {
-            align-self: flex-start;
+
+        .form-status {
+            margin-top: 1rem;
+            padding: 0.75rem;
+            border-radius: 0.75rem;
+            font-size: 0.85rem;
+            display: none;
+        }
+        .form-status.success {
+            background-color: rgba(34, 197, 94, 0.2);
+            border: 1px solid #22c55e;
+            color: #22c55e;
+        }
+        .form-status.error {
+            background-color: rgba(239, 68, 68, 0.2);
+            border: 1px solid #ef4444;
+            color: #ef4444;
         }
 
         footer {
@@ -349,11 +344,7 @@
             transform: translateY(-3px);
         }
 
-        /* Responsive */
         @media (max-width: 768px) {
-            .navbar {
-                flex-direction: row;
-            }
             .nav-links {
                 display: none;
                 width: 100%;
@@ -393,22 +384,18 @@
             }
         }
 
-        /* toast simple */
-        .toast-msg {
-            position: fixed;
-            bottom: 30px;
-            left: 50%;
-            transform: translateX(-50%);
-            background: #1f1f2e;
-            color: white;
-            padding: 12px 24px;
-            border-radius: 50px;
-            font-size: 0.9rem;
-            z-index: 1000;
-            opacity: 0;
-            transition: opacity 0.2s;
-            pointer-events: none;
-            border: 1px solid #8b5cf6;
+        .loading-spinner {
+            display: inline-block;
+            width: 16px;
+            height: 16px;
+            border: 2px solid rgba(255,255,255,0.3);
+            border-radius: 50%;
+            border-top-color: white;
+            animation: spin 0.8s linear infinite;
+            margin-right: 8px;
+        }
+        @keyframes spin {
+            to { transform: rotate(360deg); }
         }
     </style>
 </head>
@@ -432,7 +419,6 @@
 </header>
 
 <main>
-    <!-- Hero section -->
     <section id="home">
         <div class="container hero">
             <div class="hero-content">
@@ -452,7 +438,6 @@
         </div>
     </section>
 
-    <!-- Skills Section -->
     <section id="skills" style="background: #0a0a0a;">
         <div class="container">
             <h2 class="section-title">Mis especialidades</h2>
@@ -464,7 +449,6 @@
         </div>
     </section>
 
-    <!-- Projects Section - Personalizado sin proyectos -->
     <section id="projects" style="background: #050505;">
         <div class="container">
             <h2 class="section-title">Portafolio visual</h2>
@@ -476,7 +460,6 @@
         </div>
     </section>
 
-    <!-- Contact Section -->
     <section id="contact">
         <div class="container">
             <h2 class="section-title">Conectemos</h2>
@@ -497,19 +480,20 @@
                         <span>Cúcuta, Colombia</span>
                     </div>
                     <div class="social-links" style="justify-content: flex-start; gap: 1rem; margin-top: 1.5rem;">
-                        <!-- Instagram actualizado con el enlace proporcionado -->
                         <a href="https://www.instagram.com/juanez.ez?igsh=bGNpenAyeXEzbGll&utm_source=qr" target="_blank" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
-                        <a href="#" aria-label="Behance"><i class="fab fa-behance"></i></a>
-                        <a href="#" aria-label="YouTube"><i class="fab fa-youtube"></i></a>
-                        <a href="#" aria-label="TikTok"><i class="fab fa-tiktok"></i></a>
                     </div>
                 </div>
-                <div class="contact-form" id="contactFormElement">
-                    <input type="text" id="contactName" placeholder="Tu nombre" required>
-                    <input type="email" id="contactEmail" placeholder="Correo electrónico" required>
-                    <textarea rows="4" id="contactMsg" placeholder="Cuéntame sobre tu proyecto..."></textarea>
-                    <button class="btn" id="sendMsgBtn"><i class="fas fa-paper-plane"></i> Enviar mensaje</button>
-                </div>
+                
+                <!-- FORMULARIO CON FORMSPREE (código actualizado) -->
+                <form class="contact-form" id="contactForm" action="https://formspree.io/f/mlgzqnaw" method="POST">
+                    <input type="text" name="name" id="contactName" placeholder="Tu nombre" required>
+                    <input type="email" name="email" id="contactEmail" placeholder="Correo electrónico" required>
+                    <textarea name="message" rows="4" id="contactMsg" placeholder="Cuéntame sobre tu proyecto..."></textarea>
+                    <button type="submit" class="btn" id="sendMsgBtn">
+                        <i class="fas fa-paper-plane"></i> Enviar mensaje
+                    </button>
+                    <div id="formStatus" class="form-status"></div>
+                </form>
             </div>
         </div>
     </section>
@@ -518,16 +502,11 @@
 <footer>
     <div class="container">
         <div class="social-links">
-            <!-- Instagram actualizado también en el pie de página -->
             <a href="https://www.instagram.com/juanez.ez?igsh=bGNpenAyeXEzbGll&utm_source=qr" target="_blank" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
-            <a href="#" aria-label="Behance"><i class="fab fa-behance"></i></a>
-            <a href="#" aria-label="YouTube"><i class="fab fa-youtube"></i></a>
-            <a href="#" aria-label="TikTok"><i class="fab fa-tiktok"></i></a>
         </div>
         <p>© 2025 Esteban Zapata — Creativo visual. Hecho con <i class="fas fa-heart" style="color:#8b5cf6;"></i> desde Cúcuta</p>
     </div>
 </footer>
-<div id="toastMsg" class="toast-msg">Mensaje enviado (demo)</div>
 
 <script>
     // Mobile menu toggle
@@ -538,14 +517,13 @@
             navLinksMenu.classList.toggle('active');
         });
     }
-    // Cerrar menú al hacer click en enlace
+    
     document.querySelectorAll('.nav-links a').forEach(link => {
         link.addEventListener('click', () => {
             navLinksMenu.classList.remove('active');
         });
     });
 
-    // Smooth scroll para todos los enlaces internos
     document.querySelectorAll('a[href^="#"]').forEach(anchor => {
         anchor.addEventListener('click', function(e) {
             const href = this.getAttribute('href');
@@ -558,46 +536,60 @@
         });
     });
 
-    // Contact Form "simulación"
-    const sendBtn = document.getElementById('sendMsgBtn');
-    const toast = document.getElementById('toastMsg');
-    function showToastMessage(msg, isError = false) {
-        toast.textContent = msg;
-        toast.style.backgroundColor = isError ? '#991b1b' : '#1e1b2e';
-        toast.style.opacity = '1';
-        setTimeout(() => {
-            toast.style.opacity = '0';
-        }, 2800);
-    }
+    // Formspree con el código mlgzqnaw
+    const form = document.getElementById('contactForm');
+    const statusDiv = document.getElementById('formStatus');
 
-    if(sendBtn) {
-        sendBtn.addEventListener('click', (e) => {
+    if (form) {
+        form.addEventListener('submit', async (e) => {
             e.preventDefault();
-            const nameInput = document.getElementById('contactName');
-            const emailInput = document.getElementById('contactEmail');
-            const msgInput = document.getElementById('contactMsg');
-            const name = nameInput?.value.trim();
-            const email = emailInput?.value.trim();
-            const message = msgInput?.value.trim();
-
-            if(!name || !email || !message) {
-                showToastMessage('❌ Por favor completa todos los campos', true);
-                return;
+            
+            const submitBtn = form.querySelector('button[type="submit"]');
+            const originalBtnContent = submitBtn.innerHTML;
+            submitBtn.innerHTML = '<span class="loading-spinner"></span> Enviando...';
+            submitBtn.disabled = true;
+            
+            statusDiv.style.display = 'block';
+            statusDiv.className = 'form-status';
+            statusDiv.textContent = 'Enviando mensaje...';
+            
+            try {
+                const formData = new FormData(form);
+                const response = await fetch(form.action, {
+                    method: 'POST',
+                    body: formData,
+                    headers: {
+                        'Accept': 'application/json'
+                    }
+                });
+                
+                if (response.ok) {
+                    statusDiv.className = 'form-status success';
+                    statusDiv.textContent = '✅ ¡Mensaje enviado con éxito! Me pondré en contacto contigo pronto.';
+                    form.reset();
+                } else {
+                    const data = await response.json();
+                    if (data.errors) {
+                        statusDiv.className = 'form-status error';
+                        statusDiv.textContent = '❌ Error: ' + data.errors.map(error => error.message).join(', ');
+                    } else {
+                        throw new Error('Error al enviar');
+                    }
+                }
+            } catch (error) {
+                statusDiv.className = 'form-status error';
+                statusDiv.textContent = '❌ Hubo un error al enviar el mensaje. Por favor, inténtalo de nuevo o escríbeme directamente al correo.';
+            } finally {
+                submitBtn.innerHTML = originalBtnContent;
+                submitBtn.disabled = false;
+                setTimeout(() => {
+                    statusDiv.style.display = 'none';
+                }, 5000);
             }
-            if(!email.includes('@') || !email.includes('.')) {
-                showToastMessage('📧 Ingresa un correo válido', true);
-                return;
-            }
-            // Simulación éxito
-            showToastMessage('✅ ¡Mensaje enviado! Pronto me pondré en contacto contigo.');
-            // Reset formulario
-            if(nameInput) nameInput.value = '';
-            if(emailInput) emailInput.value = '';
-            if(msgInput) msgInput.value = '';
         });
     }
 
-    // animación sutil a las cards
+    // Animaciones
     const observerOptions = { threshold: 0.1, rootMargin: "0px 0px -20px 0px" };
     const fadeElements = document.querySelectorAll('.skill-card, .contact-wrapper, .empty-projects');
     const observer = new IntersectionObserver((entries) => {
@@ -616,7 +608,6 @@
         observer.observe(el);
     });
     
-    // Año dinámico en footer
     const yearSpan = document.querySelector('footer p');
     if(yearSpan) {
         const currentYear = new Date().getFullYear();
